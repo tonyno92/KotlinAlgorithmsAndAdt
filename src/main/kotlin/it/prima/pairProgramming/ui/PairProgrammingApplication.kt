@@ -1,7 +1,9 @@
 package it.prima.pairProgramming.ui
 
+import it.prima.pairProgramming.adt.noPrimitive.linear.dynamic.Queue
+import it.prima.pairProgramming.adt.noPrimitive.linear.dynamic.Stack
+import it.prima.pairProgramming.adt.noPrimitive.noLinear.Node
 import it.prima.pairProgramming.core.Application
-import java.lang.Double.max
 import java.util.*
 
 internal class PairProgrammingApplication : Application {
@@ -22,6 +24,24 @@ internal class PairProgrammingApplication : Application {
 
         priorityQueue()
 
+        val tree = Node(
+            "Antonietta",
+            left = Node(
+                "Antonio",
+                left = Node("Francesco")
+            ),
+            right = Node(
+                "Sergio",
+                left = Node("Mini-Chef")
+            )
+        )
+        printTree(root = tree)
+    }
+
+    private fun printTree(root: Node<*>) {
+        root.left?.run { printTree(this) }
+        root.right?.run { printTree(this) }
+        println(root.value)
     }
 
     private fun sortingArrayWithComparable() {
@@ -106,7 +126,7 @@ internal class PairProgrammingApplication : Application {
     private fun arrayAsStack() {
         println("Array as Stack")
 
-        it.prima.pairProgramming.adt.Stack(4).apply {
+        Stack(4).apply {
             val list = mutableListOf<Int?>()
             push(1)
             push(2)
@@ -125,7 +145,7 @@ internal class PairProgrammingApplication : Application {
 
     private fun arrayAsQueue() {
         println("Array as Queue")
-        val queue = it.prima.pairProgramming.adt.Queue(4)
+        val queue = Queue(4)
         val list = mutableListOf<Int?>()
 
         queue.apply {
