@@ -4,6 +4,7 @@ import it.prima.pairProgramming.adt.noPrimitive.linear.dynamic.Queue
 import it.prima.pairProgramming.adt.noPrimitive.linear.dynamic.Stack
 import it.prima.pairProgramming.adt.noPrimitive.noLinear.Graph
 import it.prima.pairProgramming.adt.noPrimitive.noLinear.Node
+import it.prima.pairProgramming.adt.noPrimitive.noLinear.Tree
 import it.prima.pairProgramming.core.Application
 import java.util.*
 
@@ -64,24 +65,38 @@ internal class PairProgrammingApplication : Application {
     }
 
     private fun tree() {
-        val tree = Node(
-            "Antonietta",
-            left = Node(
-                "Antonio Senior",
+        val tree = Tree(
+            Node(
+                "Antonietta",
                 left = Node(
-                    "Francesco",
-                    right = Node(
-                        "Antonio Junior"
+                    "Antonio Senior",
+                    left = Node(
+                        "Francesco",
+                        right = Node(
+                            "Antonio Junior"
+                        )
                     )
+                ),
+                right = Node(
+                    "Sergio",
+                    left = Node("Mini-Chef")
                 )
-            ),
-            right = Node(
-                "Sergio",
-                left = Node("Mini-Chef")
             )
         )
 
-        printTree(root = tree)
+        println("Tree PreOrder")
+        tree.preOrder()
+        println()
+        println("Tree InOrder")
+        tree.inOrder()
+        println()
+        println("Tree PostOrder")
+        tree.postOrder()
+        println()
+        println("Tree BFS")
+        tree.bfs()
+        println("Tree DFS")
+        tree.dfs()
     }
 
     private fun sortingArrayWithComparable() {
@@ -220,12 +235,6 @@ internal class PairProgrammingApplication : Application {
 
     private fun print2DArray(array: Array<Array<*>>) {
         for (rowIndex in array.indices) printArray(array[rowIndex])
-    }
-
-    private fun printTree(root: Node<*>) {
-        root.left?.run { printTree(this) }
-        root.right?.run { printTree(this) }
-        println(root.value)
     }
 
 }
