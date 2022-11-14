@@ -1,5 +1,8 @@
-package it.prima.pairProgramming.adt
+package it.prima.pairProgramming.adt.noPrimitive.linear.dynamic
 
+/**
+ * Non-Primitive - Linear - Dynamic
+ */
 class Queue(size: Int) {
     private val queue = Array(size) { Int.MIN_VALUE }
     private var tail = 0
