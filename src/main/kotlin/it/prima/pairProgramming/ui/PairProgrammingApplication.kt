@@ -2,6 +2,7 @@ package it.prima.pairProgramming.ui
 
 import it.prima.pairProgramming.adt.noPrimitive.linear.dynamic.Queue
 import it.prima.pairProgramming.adt.noPrimitive.linear.dynamic.Stack
+import it.prima.pairProgramming.adt.noPrimitive.noLinear.Graph
 import it.prima.pairProgramming.adt.noPrimitive.noLinear.Node
 import it.prima.pairProgramming.core.Application
 import java.util.*
@@ -26,6 +27,40 @@ internal class PairProgrammingApplication : Application {
 
         tree()
 
+        graph()
+    }
+
+    private fun graph() {
+        println("Graph building from array of pairs")
+        val nodes = arrayOf(1 to 2,
+            1 to 3,
+            1 to 4,
+            2 to 4,
+            2 to 5,
+            3 to 6,
+            4 to 3,
+            4 to 6,
+            4 to 7,
+            5 to 4,
+            5 to 7,
+            7 to 6)
+
+        println("Input pairs : ${nodes.map { it.toString() }}")
+        Graph(nodes).apply {
+            println("Graph Directional")
+            graph.keys.onEach { key ->
+                println("$key -> ${graph[key]}")
+            }
+            bfs(4)
+            dfs()
+        }
+
+        Graph(nodes, directional = false).apply {
+            println("Graph Undirectional")
+            graph.keys.onEach { key ->
+                println("$key -> ${graph[key]}")
+            }
+        }
     }
 
     private fun tree() {
