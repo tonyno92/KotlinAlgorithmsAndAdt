@@ -24,24 +24,29 @@ internal class PairProgrammingApplication : Application {
 
         priorityQueue()
 
+        tree()
+
+    }
+
+    private fun tree() {
         val tree = Node(
             "Antonietta",
             left = Node(
-                "Antonio",
-                left = Node("Francesco")
+                "Antonio Senior",
+                left = Node(
+                    "Francesco",
+                    right = Node(
+                        "Antonio Junior"
+                    )
+                )
             ),
             right = Node(
                 "Sergio",
                 left = Node("Mini-Chef")
             )
         )
-        printTree(root = tree)
-    }
 
-    private fun printTree(root: Node<*>) {
-        root.left?.run { printTree(this) }
-        root.right?.run { printTree(this) }
-        println(root.value)
+        printTree(root = tree)
     }
 
     private fun sortingArrayWithComparable() {
@@ -181,4 +186,11 @@ internal class PairProgrammingApplication : Application {
     private fun print2DArray(array: Array<Array<*>>) {
         for (rowIndex in array.indices) printArray(array[rowIndex])
     }
+
+    private fun printTree(root: Node<*>) {
+        root.left?.run { printTree(this) }
+        root.right?.run { printTree(this) }
+        println(root.value)
+    }
+
 }
