@@ -6,6 +6,9 @@ import it.prima.pairProgramming.adt.noPrimitive.noLinear.Graph
 import it.prima.pairProgramming.adt.noPrimitive.noLinear.Node
 import it.prima.pairProgramming.adt.noPrimitive.noLinear.Tree
 import it.prima.pairProgramming.core.Application
+import it.prima.pairProgramming.ui.exercise.FrizzBuzz
+import it.prima.pairProgramming.ui.exercise.MergeSort
+import it.prima.pairProgramming.ui.exercise.Palindrome
 import java.util.*
 
 internal class PairProgrammingApplication : Application {
@@ -29,6 +32,47 @@ internal class PairProgrammingApplication : Application {
         tree()
 
         graph()
+
+        frizzbuzz()
+        palindrome()
+
+        recursiveLength()
+
+        mergeSort()
+    }
+
+    private fun mergeSort() {
+        MergeSort().apply {
+            unsorted = listOf(38, 27, 43, 3, 9, 82, 10)
+            val sortedList = mergeSort()
+            println("Unsorted: $unsorted")
+            println("Sorted: $sortedList")
+        }
+    }
+
+    private fun recursiveLength() {
+        fun recLength(str: String): Int {
+            if (str.isEmpty()) return 0
+            //return 1 + recLength(str.substring(1))
+            return 1 + recLength(str.slice(0 until str.indices.last))
+        }
+
+        val s = "GEEKSFORGEEKS"
+        println("Length recursive of \"$s\" is : ${recLength(s)}")
+    }
+
+    private fun palindrome() {
+        Palindrome().apply {
+            readInt()
+            isPalindrome()
+        }
+    }
+
+    private fun frizzbuzz() {
+        val frizzBuzz = FrizzBuzz()
+        frizzBuzz.basicSolution()
+        frizzBuzz.betterSolution()
+        frizzBuzz.seniorSolution()
     }
 
     private fun graph() {
