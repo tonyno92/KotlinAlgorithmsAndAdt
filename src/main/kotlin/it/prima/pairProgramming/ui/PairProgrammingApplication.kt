@@ -6,6 +6,7 @@ import it.prima.pairProgramming.adt.noPrimitive.noLinear.Graph
 import it.prima.pairProgramming.adt.noPrimitive.noLinear.Node
 import it.prima.pairProgramming.adt.noPrimitive.noLinear.Tree
 import it.prima.pairProgramming.core.Application
+import it.prima.pairProgramming.domain.usecase.GetInfoCountryUseCase
 import it.prima.pairProgramming.ui.exercise.FrizzBuzz
 import it.prima.pairProgramming.ui.exercise.MergeSort
 import it.prima.pairProgramming.ui.exercise.Palindrome
@@ -14,7 +15,7 @@ import java.util.*
 internal class PairProgrammingApplication : Application {
 
     override fun bootstrap() {
-        //println(GetInfoCountryUseCase().invoke())
+        println(GetInfoCountryUseCase().invoke())
         println("Hello World!!")
         arrayVsList()
 
